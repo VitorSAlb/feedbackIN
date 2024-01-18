@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="./style.css">
+
+        <title>Formulario Feedback</title>
+    </head>
+    <body>
+        <header>
+            <h1>Página de Feedback</h1>
+        </header>
+
+        <main>
+
+            <form class="formTable">
+                <label for="name">Nome do usuario:</label>
+                <input type="text" id="name" name="name"/>
+                <label for="date">Data:</label>
+                <input type="date" id="date" name="date"/>
+                <label for="description">Avaliação Textual:</label>
+                <textarea id="description" name="description" rows="4"></textarea>
+
+                <button type="button" onclick="criarTabela()">Enviar</button>
+            </form>
+
+            <h1>Relatorio</h1>
+            <hr/>
+
+            <table>
+                <thead>
+                    <th>Usuarios:</th>
+                    <th>Data:</th>
+                    <th>Avaliação Textual:</th>
+                </thead>
+                <tbody id="linhas">
+                </tbody>
+            </table>
+
+        </main>
+
+        <script>
+            function criarTabela() {
+                let name = document.getElementById("name").value;
+                let date = document.getElementById("date").value;
+                let description = document.getElementById("description").value;
+
+                var tableBody = document.getElementById("linhas");
+                var newRow = tableBody.insertRow(tableBody.rows.length);
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+
+                cell1.innerHTML = name;
+                cell2.innerHTML = date;
+                cell3.innerHTML = description;
+            }
+        </script>
+
+    </body>
+</html>
